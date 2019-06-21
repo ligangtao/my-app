@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -23,6 +23,16 @@ module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
+  },
+  externals: {
+    "BMap": "BMap",// 添加百度地图
+    // 添加一个不打包到 vendor.js 中的配置
+    // 键：值
+    //    import Vue from 'vue'
+    //  键：引用的第三方包的名称
+    //  值：返回的构造器
+    "vue": "Vue",
+    "element-ui": "ELEMENT"
   },
   output: {
     path: config.build.assetsRoot,

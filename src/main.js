@@ -7,10 +7,29 @@ import ElementUI from 'element-ui'
 import '../node_modules/element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
+// 引入 element-tree-grid
+import TreeGrid from 'element-tree-grid'
 // 引入 axios 
 import myaxios from './assets/js/myaxios.js'
+import mymoment from './assets/js/mymoment.js'
+
+import VueQuillEditor from 'vue-quill-editor'
+// 引入百度地图
+import BMap from 'BMap'
+
+// require styles
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+
+Vue.use(VueQuillEditor)
 // 调用方法 use
 Vue.use(myaxios)
+Vue.use(mymoment)
+
+// 定义一个全局组件 tree-grid
+Vue.component(TreeGrid.name, TreeGrid)
+
 
 // 引入全局样式
 import './assets/css/index.css'
